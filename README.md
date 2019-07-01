@@ -76,4 +76,14 @@ Assuming Grammar for RDP:
 	T -> x
 ```
 
-
+##### Sample Inputs for Parsing:
+```
+	- xxx: invalid
+	- x+x+x: invalid
+	- x+(x+x): valid
+	- x+(x+(x+x)): valid
+	- xxx: invalid
+	- x+(x+x)+x: invalid 
+```
+  
+ 
