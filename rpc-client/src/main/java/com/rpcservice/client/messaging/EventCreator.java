@@ -20,7 +20,7 @@ public class EventCreator {
     public void create() {
         Flux.just("StartSendingMessage")
         .flatMap(message -> rpcServiceMessageSender.sendMessage())
-        .doOnNext(message -> logger.info("Message has beend send successfully"))
+        .doOnNext(message -> logger.info("Message has been sent successfully"))
         .subscribe();      
     }
 }

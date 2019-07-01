@@ -25,8 +25,8 @@ public class RpcMessageConsumer {
     @EventListener(ApplicationReadyEvent.class)
     public Disposable consumeMessage() {
         return rpcMessageReceiver.receive()
-                .map(recievedRecord -> parseUsingDecentRecursive(recievedRecord))
-                .doOnNext(parsedValue -> logger.info("Recursing Descent Parsing result is: {}", parsedValue))
+                .map(receiverRecord -> parseUsingDecentRecursive(receiverRecord))
+                .doOnNext(parsedValue -> logger.info("Recursive Descent Parsing result is: {}", parsedValue))
                 .subscribe();
 
     }
