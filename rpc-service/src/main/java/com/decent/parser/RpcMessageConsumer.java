@@ -26,13 +26,13 @@ public class RpcMessageConsumer {
     public Disposable consumeMessage() {
         return rpcMessageReceiver.receive()
                 .map(recievedRecord -> parseUsingDecentRecursive(recievedRecord))
-                .doOnNext(parsedValue -> logger.info("The parsed Value is ===========>>> {}", parsedValue))
+                .doOnNext(parsedValue -> logger.info("Recursing Descent Parsing result is: {}", parsedValue))
                 .subscribe();
 
     }
     
     private String parseUsingDecentRecursive(ReceiverRecord<String, String> receiverRecord) {
-        logger.info("The unparsed value is ================>>>>> {}", receiverRecord.value());
+        logger.info("The incoming string for parsing is: {}", receiverRecord.value());
         receiverRecord.receiverOffset().acknowledge();
         return parser.parseInputString(receiverRecord.value());
     }
