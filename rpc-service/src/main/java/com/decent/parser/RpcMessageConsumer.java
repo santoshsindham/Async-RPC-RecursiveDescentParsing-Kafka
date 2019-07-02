@@ -34,6 +34,6 @@ public class RpcMessageConsumer {
     private String parseUsingDecentRecursive(ReceiverRecord<String, String> receiverRecord) {
         logger.info("The incoming string for parsing is: {}", receiverRecord.value());
         receiverRecord.receiverOffset().acknowledge();
-        return parser.parseInputString(receiverRecord.value());
+        return parser.parse(receiverRecord.value());
     }
 }

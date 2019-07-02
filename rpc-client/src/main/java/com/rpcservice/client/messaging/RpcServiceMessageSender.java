@@ -34,10 +34,10 @@ public class RpcServiceMessageSender {
     
     @PostConstruct
     public void initHandlerServiceCache() {
-        messages.add("x+x+x");
-        messages.add("xxx");
-        messages.add("x+(x+x)");
-        messages.add("x+(x+(x+x))");
+        messages.add("1+2+3;.");
+        messages.add("1+2*3;.");
+        messages.add("1+2*3+4;.");
+        messages.add("1abc");
     }
     
     
