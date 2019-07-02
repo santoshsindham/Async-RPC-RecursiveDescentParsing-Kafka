@@ -70,20 +70,28 @@ The `rpc-server` is configured to listen to the messages from topic
 print the result.
 
 ```
-Assuming Grammar for RDP:
-	E -> x + T
-	T -> (E)
-	T -> x
+   The grammar:
+
+   statement = { expression  ";" } "."
+   expression = term { ( "+" | "-" ) term }
+   term      = factor { ( "*" | "/" ) factor }
+   factor    = number | "(" expression ")"
 ```
 
 ##### Sample Inputs for Parsing:
 ```
-	- xxx: invalid
-	- x+x+x: invalid
-	- x+(x+x): valid
-	- x+(x+(x+x)): valid
-	- xxx: invalid
-	- x+(x+x)+x: invalid 
+
+       I/p: 1+2+3;.
+       O/p: 6
+       
+       I/p: 1+2*3;.
+       O/p: 7
+       
+       I/p: 1+2*3+4;.
+       O/p: 11
+       
+       I/p: 1abc
+       O/p: The given input is invalid 1abc
 ```
   
  
